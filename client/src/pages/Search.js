@@ -1,21 +1,34 @@
 import React from "react";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+import { Col, Row, Container } from "react-bootstrap";
+import BookSearch from "../components/BookSearch";
+import Wrapper from "../components/Wrapper";
+import Jumbotron from "react-bootstrap/Jumbotron";
+
 
 function Search() {
   return (
     <Container fluid>
       <Row>
         <Col size="md-12">
-          <Jumbotron>
-            <h1>404 Page Not Found</h1>
-            <h1>
-              <span role="img" aria-label="Face With Rolling Eyes Emoji">
-                🙄
-              </span>
-            </h1>
+          <Jumbotron style={{ height: 200, clear: "both", paddingTop: 50, textAlign: "center" }}>
+            <h1>(React) Google Books Search</h1>
+            <h2>
+                Search for and save books of interest
+            </h2>
           </Jumbotron>
         </Col>
+      </Row>
+      <Row>
+          <Col>
+                  <BookSearch/>
+          </Col>
+      </Row>
+      <Row>
+          <Col>
+                  <Wrapper>
+                      <p>Results</p>
+                  </Wrapper>
+          </Col>
       </Row>
     </Container>
   );

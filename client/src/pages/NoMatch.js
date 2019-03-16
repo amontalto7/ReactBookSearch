@@ -1,13 +1,13 @@
 import React from "react";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron";
+import { Col, Row, Container } from "react-bootstrap";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 function NoMatch() {
   return (
     <Container fluid>
       <Row>
         <Col size="md-12">
-          <Jumbotron>
+        <Jumbotron style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}>
             <h1>404 Page Not Found</h1>
             <h1>
               <span role="img" aria-label="Face With Rolling Eyes Emoji">
