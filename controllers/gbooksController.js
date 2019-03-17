@@ -4,7 +4,7 @@ const axios = require("axios");
 
 // Defining methods for the booksController
 module.exports = {
-  findAll: function(req, res) {
+  getBooks: function(req, res) {
     const params = Object.assign(
       {api_key: process.env.API_KEY},req.query
     );

@@ -1,3 +1,22 @@
-li {
-    /* justify-content: space-between; */
+.heading {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+article {
+    width: 100%;
+}
+
+.btn {
+    margin: 5px;
+}
+
+span:nth-child(1){
+    margin-right: auto;
+}
+
+img {
+    float:left;
+    margin: 5px;
 }
