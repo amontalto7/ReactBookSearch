@@ -1,0 +1,15 @@
+.list-group {
+}
+
+.list-group-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.btn {
+    margin: 5px;
+}
+span:nth-child(1){
+    margin-right: auto;
+}

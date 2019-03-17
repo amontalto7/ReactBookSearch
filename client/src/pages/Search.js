@@ -4,6 +4,7 @@ import BookSearch from "../components/BookSearch";
 import Wrapper from "../components/Wrapper";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Book from "../components/Book";
+import {List} from "../components/List";
 
 
 function Search() {
@@ -28,7 +29,9 @@ function Search() {
           <Col>
                   <Wrapper>
                       <p>Results</p>
+                      <List>
                       <Book/>
+                        </List>
                   </Wrapper>
           </Col>
       </Row>

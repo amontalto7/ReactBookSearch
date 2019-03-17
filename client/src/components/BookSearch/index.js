@@ -7,7 +7,7 @@ function BookSearch() {
     return (
         <div className = "book_search">
         <h5>Book Search</h5>
-        <form>
+        <Form>
             <Form.Group controlID="formBookSearch">
                 <Form.Label>Book</Form.Label>
                 <Form.Control type ="text" placeholder="Enter book title" />
@@ -15,7 +15,7 @@ function BookSearch() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
-        </form>
+        </Form>
         </div>
         
     );
