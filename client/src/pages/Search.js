@@ -7,16 +7,46 @@ import Book from "../components/Book";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { List } from "../components/List";
+import API from "../utils/API";
 import "./style.css";
 
 class Search extends Component {
   state = {
+    query: "Jurassic Park",
     books: [],
-    title: "",
-    author: "",
-    synopsis: ""
+    message: "Search for Books To Begin!"
   };
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  
+  getBooks = () => {
+    API.getBooks({
+      query: this.state.query
+    })
+      .then(res =>
+        this.setState({ 
+          books: res.data,
+          message: !res.data.length ? "No books found. Try a different query" : ""
+          })
+      )
+      .catch(err => console.log(err));
+  };
+  
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      message: ""
+    });
+    if (this.state.query) {
+      this.getBooks()
+    }
+  };
 
   render(){
   return (
@@ -42,10 +72,19 @@ class Search extends Component {
             <h5>Book Search</h5>
             <Form>
               <Form.Group controlID="formBookSearch">
-                <Form.Label>Book</Form.Label>
-                <Form.Control type="text" placeholder="Enter book title" />
+                <Form.Label>{this.state.message}</Form.Label>
+                <Form.Control 
+                    type="text" 
+                    value={this.state.query}
+                    onChange={this.handleInputChange}
+                    placeholder="Enter book title" />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button 
+                variant="primary" 
+                type="submit"
+                disabled={!this.state.query}
+                onClick={this.handleFormSubmit}
+                >
                 Submit
               </Button>
             </Form>
