@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import { List } from "../components/List";
 import API from "../utils/API";
 import "./style.css";
+import { throws } from "assert";
 
 class Search extends Component {
   state = {
@@ -62,7 +63,7 @@ class Search extends Component {
             }}
           >
             <h1>(React) Google Books Search</h1>
-            <h2>Search for and save books of interest</h2>
+            <h4>Search for and save books of interest</h4>
           </Jumbotron>
         </Col>
       </Row>
@@ -93,11 +94,26 @@ class Search extends Component {
       </Row>
       <Row>
         <Col>
-          <Wrapper>
-            <p>Results</p>
+          <Wrapper className="results">
+          <h5>Results</h5>
+            {this.state.books.length ? (
             <List>
-              <Book />
+              {this.state.books.map(book => (
+                <Book 
+                  key={book.id}
+                  _id={book.id}
+                  title={book.volumeInfo.title}
+                  url={book.volumeInfo.previewLink}
+                  authors={book.volumeInfo.authors}
+                  synopsis={book.volumeInfo.description}
+                  image={"https://placehold.it/150x150"}
+                  // image={book.volumeInfo.imageLinks.thumbnail}
+                  />
+              ))}
             </List>
+            ): (
+              <h2 className="text-center">{this.state.message}</h2>
+            )}
           </Wrapper>
         </Col>
       </Row>

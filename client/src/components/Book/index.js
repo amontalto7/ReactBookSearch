@@ -2,20 +2,21 @@ import React from "react";
 import { ListItem } from "../List";
 import "./style.css";
 
-const Book = ({ title, url, _id, dateAdded, Author, handleClick, saved}) => (
+const Book = ({key, title, url, _id, authors, synopsis, image, handleClick, saved}) => (
     <ListItem>
         <article>
             <div className="heading">        
                 <span>
-                <h3>
-                    <em>{title}Title</em>{" "}<p>
+                    <h4>
                     <span className="btn-group">
-                        <a className="btn btn-default" href={url} rel="noopener noreferrer" target="_blank">
-                            Written by {Author}
+                        <a href={url} rel="noopener noreferrer" target="_blank">
+                        <em>{title}</em>{" "}
                         </a>
                         </span>
-                        </p>
-                </h3>
+                    </h4>
+                    <p>
+                    Written by {authors.join(", ")}
+                    </p>
                 </span>
                 <span>
                         <button onClick={() => handleClick(_id)} className="btn btn-primary">
@@ -28,9 +29,10 @@ const Book = ({ title, url, _id, dateAdded, Author, handleClick, saved}) => (
                 </span>
             </div>
             <div className="synopsis">
-                <img src="https://placehold.it/150x150" alt="thumbnail"/>
+                <img src={image} alt={title}/>
                 <p>
-                Hodor. Hodor hodor... Hodor hodor hodor hodor. Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor?! Hodor, hodor. Hodor. Hodor, hodor - hodor hodor! Hodor, hodor, hodor. Hodor hodor hodor. Hodor. Hodor hodor - hodor... Hodor hodor hodor hodor; hodor hodor? Hodor. Hodor HODOR hodor, hodor hodor... Hodor hodor hodor; hodor hodor?! Hodor hodor - hodor hodor; hodor hodor; hodor hodor? Hodor hodor - hodor hodor... Hodor hodor hodor hodor. Hodor. Hodor hodor HODOR! Hodor HODOR hodor, hodor hodor - hodor hodor! Hodor hodor HODOR! Hodor hodor, hodor. Hodor hodor; hodor hodor; hodor hodor - hodor, hodor, hodor hodor. 
+                    {synopsis ? synopsis : 'hodor' }
+                {/* Hodor. Hodor hodor... Hodor hodor hodor hodor. Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor?! Hodor, hodor. Hodor. Hodor, hodor - hodor hodor! Hodor, hodor, hodor. Hodor hodor hodor. Hodor. Hodor hodor - hodor... Hodor hodor hodor hodor; hodor hodor? Hodor. Hodor HODOR hodor, hodor hodor... Hodor hodor hodor; hodor hodor?! Hodor hodor - hodor hodor; hodor hodor; hodor hodor? Hodor hodor - hodor hodor... Hodor hodor hodor hodor. Hodor. Hodor hodor HODOR! Hodor HODOR hodor, hodor hodor - hodor hodor! Hodor hodor HODOR! Hodor hodor, hodor. Hodor hodor; hodor hodor; hodor hodor - hodor, hodor, hodor hodor.  */}
                 </p>
             </div>
         </article>
