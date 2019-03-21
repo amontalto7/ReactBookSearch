@@ -8,12 +8,15 @@ module.exports = {
     // const params = Object.assign(
     //   {api_key: process.env.API_KEY},req.query
     // );
-    let queryUrl = `https://www.googleapis.com/books/v1/volumes?q=${req.query}&key=${process.env.API_KEY}`    
+    // console.log(req)
+    // console.log(`Req.query: ${JSON.stringify(req.query)}`);
+    let queryUrl = `https://www.googleapis.com/books/v1/volumes?q=${req.query.query}&key=${process.env.API_KEY}`    
     console.log(queryUrl);
     axios
     .get(queryUrl)
     // .get("https://www.googleapis.com/books/v1/volumes?q=flowers&key=AIzaSyAYeKp1W0vvzx4cznVcVmtNW7s8RpdIzRQ")
     .then(response =>{
+      // console.log(response.data)
      console.log(response.data.items[0].volumeInfo.title)
      console.log(response.data.items[0].volumeInfo.authors)
      console.log(response.data.items[0].volumeInfo.imageLinks.smallThumbnail)

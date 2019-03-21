@@ -12,23 +12,31 @@ import "./style.css";
 import { throws } from "assert";
 
 class Search extends Component {
-  state = {
-    query: "Jurassic Park",
-    books: [],
-    message: "Search for Books To Begin!"
-  };
+  constructor(props) {
+    super(props)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.getBooks = this.getBooks.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.state = {
+      query: "Jurassic Park",
+      books: [],
+      message: "Search for Books To Begin!"
+    }; 
+  }
 
-  handleInputChange = event => {
+
+
+  handleInputChange(event) {
+    console.log(event.target)
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
   
-  getBooks = () => {
-    API.getBooks({
-      query: this.state.query
-    })
+  getBooks() {
+    console.log(this.state)
+    API.getBooks(this.state.query)
       .then(res =>
         this.setState({ 
           books: res.data,
@@ -39,8 +47,10 @@ class Search extends Component {
   };
   
 
-  handleFormSubmit = event => {
+  handleFormSubmit(event) {
+    console.log("testing")
     event.preventDefault();
+    console.log("here")
     this.setState({
       message: ""
     });
@@ -71,12 +81,15 @@ class Search extends Component {
         <Col>
           <div className="book_search">
             <h5>Book Search</h5>
-            <Form>
+            <Form
+             onSubmit={e => this.handleFormSubmit(e)}
+            >
               <Form.Group controlID="formBookSearch">
                 <Form.Label>{this.state.message}</Form.Label>
                 <Form.Control 
                     type="text" 
-                    value={this.state.query}
+                    name="query"
+                    // value={this.state.query}
                     onChange={this.handleInputChange}
                     placeholder="Enter book title" />
               </Form.Group>
@@ -84,7 +97,7 @@ class Search extends Component {
                 variant="primary" 
                 type="submit"
                 disabled={!this.state.query}
-                onClick={this.handleFormSubmit}
+               
                 >
                 Submit
               </Button>
@@ -106,10 +119,13 @@ class Search extends Component {
                   url={book.volumeInfo.previewLink}
                   authors={book.volumeInfo.authors}
                   synopsis={book.volumeInfo.description}
-                  image={"https://placehold.it/150x150"}
-                  // image={book.volumeInfo.imageLinks.thumbnail}
+                  // image={"https://placehold.it/150x150"}
+                  image={book.volumeInfo.imageLinks.thumbnail}
                   />
-              ))}
+                    
+              ))
+            
+              }
             </List>
             ): (
               <h2 className="text-center">{this.state.message}</h2>
