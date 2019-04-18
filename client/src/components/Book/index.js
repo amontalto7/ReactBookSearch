@@ -19,7 +19,7 @@ const Book = ({key, title, url, _id, authors, synopsis, image, handleClick, save
                     </p>
                 </span>
                 <span>
-                        <button onClick={() => handleClick(_id)} className="btn btn-primary">
+                        <button onClick={() => handleClick(_id)} className="btn btn-primary" href={url}>
                             View
                         </button>
                         <button onClick={() => handleClick(_id)} className="btn btn-primary">
