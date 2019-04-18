@@ -14,15 +14,27 @@ module.exports = {
     console.log(queryUrl);
     axios
     .get(queryUrl)
-    .then(response =>{
-      // console.log(response.data)
-    //  console.log(response.data.items[0].volumeInfo.title)
-    //  console.log(response.data.items[0].volumeInfo.authors)
-    //  console.log(response.data.items[0].volumeInfo.imageLinks.smallThumbnail)
-    //  console.log(response.data.items[0].volumeInfo.description)
-
-     res.json(response.data.items)
-    })
+    .then(response =>
+      // make sure responses contain all reuired data
+        response.data.items.filter(
+          result =>
+            result.volumeInfo.title &&
+            result.volumeInfo.infoLink &&
+            result.volumeInfo.authors &&
+            result.volumeInfo.description &&
+            result.volumeInfo.imageLinks &&
+            result.volumeInfo.imageLinks.thumbnail
+        )
+    )
+    // findAll searches the Google Books API and returns only the entries we haven't already saved
+    // .then(apiBooks =>
+    //   db.Book.find().then(dbBooks =>
+    //     apiBooks.filter(apiBook =>
+    //       dbBooks.every(dbBook => dbBook.googleId.toString() !== apiBook.id)
+    //     )
+    //   )
+    // )
+    .then(books => res.json(books))
     .catch(err => res.status(422).json(err));
   }
 

@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import { List } from "../components/List";
 import API from "../utils/API";
 import "./style.css";
-import { throws } from "assert";
+// import { throws } from "assert";
 
 class Search extends Component {
   constructor(props) {
@@ -27,7 +27,6 @@ class Search extends Component {
 
 
   handleInputChange(event) {
-    console.log(event.target)
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -35,7 +34,7 @@ class Search extends Component {
   };
   
   getBooks() {
-    console.log(this.state)
+    // console.log(this.state)
     API.getBooks(this.state.query)
       .then(res =>
         this.setState({ 
@@ -48,9 +47,7 @@ class Search extends Component {
   
 
   handleFormSubmit(event) {
-    console.log("testing")
     event.preventDefault();
-    console.log("here")
     this.setState({
       message: ""
     });
@@ -84,7 +81,7 @@ class Search extends Component {
             <Form
              onSubmit={e => this.handleFormSubmit(e)}
             >
-              <Form.Group controlID="formBookSearch">
+              <Form.Group controlId="formBookSearch">
                 <Form.Label>{this.state.message}</Form.Label>
                 <Form.Control 
                     type="text" 
