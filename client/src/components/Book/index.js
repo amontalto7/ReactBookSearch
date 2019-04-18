@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "../List";
 import "./style.css";
 
-const Book = ({key, title, url, _id, authors, synopsis, handleClick, image, saved}) => (
+const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, image, saved}) => (
     <ListItem>
         <article>
             <div className="heading">        
@@ -19,7 +19,7 @@ const Book = ({key, title, url, _id, authors, synopsis, handleClick, image, save
                     </p>
                 </span>
                 <span>
-                    <a href={url} className="btn btn-primary" target="_blank" rel="noopener noreferrer" role="button">View</a>
+                    <a href={preview} className="btn btn-primary" target="_blank" rel="noopener noreferrer" role="button">View</a>
 
                         <button onClick={() => handleClick(_id)} className="btn btn-primary">
                             Save

@@ -113,7 +113,8 @@ class Search extends Component {
                   key={book.id}
                   _id={book.id}
                   title={book.volumeInfo.title}
-                  url={book.volumeInfo.previewLink}
+                  url={book.volumeInfo.infoLink}
+                  preview={book.volumeInfo.previewLink}
                   authors={book.volumeInfo.authors}
                   synopsis={book.volumeInfo.description}
                   // image={"https://placehold.it/150x150"}

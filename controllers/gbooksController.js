@@ -20,6 +20,7 @@ module.exports = {
           result =>
             result.volumeInfo.title &&
             result.volumeInfo.infoLink &&
+            result.volumeInfo.previewLink &&
             result.volumeInfo.authors &&
             result.volumeInfo.description &&
             result.volumeInfo.imageLinks &&
