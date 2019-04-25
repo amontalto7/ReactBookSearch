@@ -9,9 +9,9 @@ var BookSchema = new Schema({
   // `headline` is required and of type String
   title: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
+  subtitle: { type: String },
   authors: [
     {
       // Store ObjectIds in the array
@@ -29,6 +29,11 @@ var BookSchema = new Schema({
   link: {
     type: String,
     required: true
+  },
+  googleId: { 
+    type: String,
+    required: true,
+    unique: true 
   },
   dateAdded: {
     type: Date,
