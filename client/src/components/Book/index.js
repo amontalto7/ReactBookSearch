@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "../List";
 import "./style.css";
 
-const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, image, saved}) => (
+const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, image, Button}) => (
     <ListItem>
         <article>
             <div className="heading">        
