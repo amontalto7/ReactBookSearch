@@ -12,28 +12,33 @@ import "./style.css";
 // import { throws } from "assert";
 
 class Search extends Component {
-  constructor(props) {
-    super(props)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.getBooks = this.getBooks.bind(this)
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.state = {
-      query: "Jurassic Park",
-      books: [],
-      message: "Search for Books To Begin!"
-    }; 
+  // constructor(props) {
+  //   super(props)
+  //   this.handleInputChange = this.handleInputChange.bind(this)
+  //   this.getBooks = this.getBooks.bind(this)
+  //   this.handleFormSubmit = this.handleFormSubmit.bind(this)
+  //   this.state = {
+  //     query: "Jurassic Park",
+  //     books: [],
+  //     message: "Search for Books To Begin!"
+  //   }; 
+  // }
+
+  state = {
+    query: "",
+    books: [],
+    message: "Search for Books To Begin!"
   }
 
 
-
-  handleInputChange(event) {
+  handleInputChange = event =>  {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
   
-  getBooks() {
+  getBooks = () => {
     // console.log(this.state)
     API.getBooks(this.state.query)
       .then(res =>
@@ -46,7 +51,7 @@ class Search extends Component {
   };
   
 
-  handleFormSubmit(event) {
+  handleFormSubmit = event => {
     event.preventDefault();
     this.setState({
       message: ""
@@ -119,6 +124,14 @@ class Search extends Component {
                   synopsis={book.volumeInfo.description}
                   // image={"https://placehold.it/150x150"}
                   image={book.volumeInfo.imageLinks.thumbnail}
+                  ContextButton={() => (
+                    <button
+                      // onClick={() => this.handleBookDelete(book._id)}
+                      className="btn btn-primary ml-2"
+                    >
+                      Save
+                    </button>
+                    )}
                   />
                     
               ))

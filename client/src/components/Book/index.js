@@ -2,7 +2,8 @@ import React from "react";
 import { ListItem } from "../List";
 import "./style.css";
 
-const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, image, Button}) => (
+function Book ({key, title, url, preview, _id, authors, synopsis, handleClick, image, ContextButton}) {
+return (
     <ListItem>
         <article>
             <div className="heading">        
@@ -19,11 +20,12 @@ const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, im
                     </p>
                 </span>
                 <span>
-                    <a href={preview} className="btn btn-primary" target="_blank" rel="noopener noreferrer" role="button">View</a>
+                    <a href={preview} className="btn btn-primary text-light" target="_blank" rel="noopener noreferrer" role="button">View</a>
 
-                        <button onClick={() => handleClick(_id)} className="btn btn-primary">
+                        {/* <button onClick={() => handleClick(_id)} className="btn btn-primary">
                             Save
-                        </button>
+                        </button> */}
+                        <ContextButton />
 
                 </span>
             </div>
@@ -36,6 +38,7 @@ const Book = ({key, title, url, preview, _id, authors, synopsis, handleClick, im
             </div>
         </article>
     </ListItem>
-)
+);
+ }
 
 export default Book;

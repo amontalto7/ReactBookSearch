@@ -62,14 +62,14 @@ class Saved extends Component {
                       authors={book.authors}
                       description={book.description}
                       image={book.image}
-                      // Button={() => (
-                      //   <button
-                      //     // onClick={() => this.handleBookDelete(book._id)}
-                      //     className="btn btn-danger ml-2"
-                      //   >
-                      //     Delete
-                      //   </button>
-                      // )}
+                      ContextButton={() => (
+                        <button
+                          // onClick={() => this.handleBookDelete(book._id)}
+                          className="btn btn-danger ml-2"
+                        >
+                          Delete
+                        </button>
+                      )}
                     />
                   ))}
                 </List>
