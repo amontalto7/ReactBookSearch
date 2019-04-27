@@ -28,6 +28,10 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
+  handleBookDelete = id => {
+    API.deleteBook(id).then(res => this.getSavedBooks());
+  };
+
 
   render(){
 
@@ -58,13 +62,13 @@ class Saved extends Component {
                     <Book
                       key={book._id}
                       title={book.title}
-                      link={book.link}
+                      preview={book.link}
                       authors={book.authors}
                       synopsis={book.description}
                       image={book.image}
                       ContextButton={() => (
                         <button
-                          // onClick={() => this.handleBookDelete(book._id)}
+                          onClick={() => this.handleBookDelete(book._id)}
                           className="btn btn-danger ml-2"
                         >
                           Delete
