@@ -47,7 +47,15 @@ class Search extends Component {
           message: !res.data.length ? "No books found. Try a different query" : ""
           })
       )
-      .catch(err => console.log(err));
+      .catch(err => 
+        {
+          this.setState({
+            books: [],
+            message: "No New Books found. Try a different query"
+          })
+          console.log(err);
+        })
+        
   };
   
   handleFormSubmit = event => {
