@@ -50,7 +50,6 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
   
-
   handleFormSubmit = event => {
     event.preventDefault();
     this.setState({
@@ -60,6 +59,21 @@ class Search extends Component {
       this.getBooks()
     }
   };
+
+  handleBookSave = id => {
+    const book = this.state.books.find(book => book.id === id);
+
+    API.saveBook({
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail
+    }).then(() => this.getBooks());
+  };
+
 
   render(){
   return (
@@ -127,7 +141,7 @@ class Search extends Component {
                   image={book.volumeInfo.imageLinks.thumbnail}
                   ContextButton={() => (
                     <button
-                      // onClick={() => this.handleBookDelete(book._id)}
+                      onClick={() => this.handleBookSave(book.id)}
                       className="btn btn-primary ml-2"
                     >
                       Save

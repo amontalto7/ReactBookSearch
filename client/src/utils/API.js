@@ -13,6 +13,10 @@ export default {
       // Gets all saved books
     getSavedBooks: function() {
       return axios.get("/api/books");
+    },
+     // Saves an book to the database
+    saveBook: function(bookData) {
+      return axios.post("/api/books", bookData);
     }
 
 };
