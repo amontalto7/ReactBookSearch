@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "../List";
 import "./style.css";
 
-function Book ({key, title, url, preview, _id, authors, synopsis, handleClick, image, ContextButton}) {
+function Book ({key, title, subtitle, url, preview, _id, authors, synopsis, handleClick, image, ContextButton}) {
 return (
     <ListItem>
         <article>
@@ -15,6 +15,7 @@ return (
                         </a>
                         </span>
                     </h4>
+                    <h5>{subtitle}</h5>
                     <p>
                     Written by {authors.join(", ")}
                     </p>

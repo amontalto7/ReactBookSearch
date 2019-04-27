@@ -118,6 +118,7 @@ class Search extends Component {
                   key={book.id}
                   _id={book.id}
                   title={book.volumeInfo.title}
+                  subtitle={book.volumeInfo.subtitle}
                   url={book.volumeInfo.infoLink}
                   preview={book.volumeInfo.previewLink}
                   authors={book.volumeInfo.authors}

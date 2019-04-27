@@ -60,7 +60,7 @@ class Saved extends Component {
                       title={book.title}
                       link={book.link}
                       authors={book.authors}
-                      description={book.description}
+                      synopsis={book.description}
                       image={book.image}
                       ContextButton={() => (
                         <button
