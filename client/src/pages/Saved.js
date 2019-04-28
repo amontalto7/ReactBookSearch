@@ -22,7 +22,7 @@ class Saved extends Component {
         this.setState({
           books: res.data
         })
-        console.log(this.state.books)
+        // console.log(this.state.books)
       }
       )
       .catch(err => console.log(err));
