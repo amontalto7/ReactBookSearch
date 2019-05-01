@@ -67,6 +67,7 @@ class Saved extends Component {
                     <Book
                       key={book._id}
                       title={book.title}
+                      subtitle={book.subtitle}
                       preview={book.link}
                       authors={book.authors}
                       synopsis={book.description}
