@@ -44,7 +44,12 @@ class Saved extends Component {
                 height: 200,
                 clear: "both",
                 paddingTop: 50,
-                textAlign: "center"
+                textAlign: "center",
+                textShadow: "1px 1px white",
+                backgroundImage: "url(/images/Bookshelf.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: .9  
               }}
             >
               <h1>(React) Google Books Search</h1>
